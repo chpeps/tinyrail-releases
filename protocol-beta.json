@@ -18,27 +18,70 @@
     "L'app mobile en garde une copie vendorisée, vérifiée par empreinte.",
     "Toute modification ici doit être reportée dans cette copie."
   ],
-
   "version": 2,
-
   "service_uuid": "12340000-1234-1234-1234-123412340000",
   "uuid_base": "12340000-1234-1234-1234-1234123400",
-
   "characteristics": {
-    "CHALLENGE":     { "suffix": "01", "props": "R",   "size": 16 },
-    "AUTH_RESPONSE": { "suffix": "02", "props": "W",   "size": 32 },
-    "SHARED_KEY":    { "suffix": "03", "props": "R",   "size": 32 },
-    "STATE":         { "suffix": "10", "props": "RN",  "size": 9 },
-    "TELEMETRY":     { "suffix": "11", "props": "RN",  "size": 20 },
-    "INPUTS":        { "suffix": "12", "props": "RN",  "size": 20, "min_size": 16 },
-    "FAULTS":        { "suffix": "13", "props": "RN",  "size": 4,  "min_size": 2 },
-    "CMD":           { "suffix": "20", "props": "W",   "max_size": 34 },
-    "RESP":          { "suffix": "21", "props": "RN" },
-    "OTA_STATUS":    { "suffix": "31", "props": "RN",  "size": 12 },
-    "OTA_DATA":      { "suffix": "30", "props": "WNR" },
-    "HIST_DATA":     { "suffix": "40", "props": "N" }
+    "CHALLENGE": {
+      "suffix": "01",
+      "props": "R",
+      "size": 16
+    },
+    "AUTH_RESPONSE": {
+      "suffix": "02",
+      "props": "W",
+      "size": 32
+    },
+    "SHARED_KEY": {
+      "suffix": "03",
+      "props": "R",
+      "size": 32
+    },
+    "STATE": {
+      "suffix": "10",
+      "props": "RN",
+      "size": 9
+    },
+    "TELEMETRY": {
+      "suffix": "11",
+      "props": "RN",
+      "size": 20
+    },
+    "INPUTS": {
+      "suffix": "12",
+      "props": "RN",
+      "size": 20,
+      "min_size": 16
+    },
+    "FAULTS": {
+      "suffix": "13",
+      "props": "RN",
+      "size": 4,
+      "min_size": 2
+    },
+    "CMD": {
+      "suffix": "20",
+      "props": "W",
+      "max_size": 34
+    },
+    "RESP": {
+      "suffix": "21",
+      "props": "RN"
+    },
+    "OTA_STATUS": {
+      "suffix": "31",
+      "props": "RN",
+      "size": 12
+    },
+    "OTA_DATA": {
+      "suffix": "30",
+      "props": "WNR"
+    },
+    "HIST_DATA": {
+      "suffix": "40",
+      "props": "N"
+    }
   },
-
   "_ota_comment": [
     "Mise à jour du firmware par BLE. Le contrôle passe par CMD (OTA_BEGIN,",
     "OTA_END, OTA_ABORT, OTA_STATUS) ; les octets de l'image passent par la",
@@ -72,29 +115,90 @@
     "reconnaît une carte qui ne sait pas se mettre à jour par BLE. C'est",
     "pourquoi la version du protocole ne change pas — rien n'est rompu."
   ],
-
   "ota_states": [
-    { "id": 0, "en": "Idle",       "fr": "Au repos" },
-    { "id": 1, "en": "Preparing",  "fr": "Préparation de la partition" },
-    { "id": 2, "en": "Ready",      "fr": "Prête à recevoir" },
-    { "id": 3, "en": "Receiving",  "fr": "Réception" },
-    { "id": 4, "en": "Done",       "fr": "Terminée" },
-    { "id": 5, "en": "Failed",     "fr": "Échec" }
+    {
+      "id": 0,
+      "en": "Idle",
+      "fr": "Au repos"
+    },
+    {
+      "id": 1,
+      "en": "Preparing",
+      "fr": "Préparation de la partition"
+    },
+    {
+      "id": 2,
+      "en": "Ready",
+      "fr": "Prête à recevoir"
+    },
+    {
+      "id": 3,
+      "en": "Receiving",
+      "fr": "Réception"
+    },
+    {
+      "id": 4,
+      "en": "Done",
+      "fr": "Terminée"
+    },
+    {
+      "id": 5,
+      "en": "Failed",
+      "fr": "Échec"
+    }
   ],
-
   "ota_errors": [
-    { "id": 0, "en": "None",           "fr": "Aucune" },
-    { "id": 1, "en": "Busy",           "fr": "Une mise à jour est déjà en cours" },
-    { "id": 2, "en": "Not ready",      "fr": "Aucun transfert ouvert pour ce client" },
-    { "id": 3, "en": "Bad size",       "fr": "Taille refusée par la partition" },
-    { "id": 4, "en": "Lost packets",   "fr": "Des paquets ont été perdus" },
-    { "id": 5, "en": "Credit exceeded", "fr": "Crédit dépassé" },
-    { "id": 6, "en": "Foreign image",  "fr": "Ce n'est pas un firmware de cette carte" },
-    { "id": 7, "en": "Flash error",    "fr": "La flash a refusé l'écriture" },
-    { "id": 8, "en": "Checksum",       "fr": "Empreinte fausse — image incomplète" },
-    { "id": 9, "en": "Aborted",        "fr": "Annulée" }
+    {
+      "id": 0,
+      "en": "None",
+      "fr": "Aucune"
+    },
+    {
+      "id": 1,
+      "en": "Busy",
+      "fr": "Une mise à jour est déjà en cours"
+    },
+    {
+      "id": 2,
+      "en": "Not ready",
+      "fr": "Aucun transfert ouvert pour ce client"
+    },
+    {
+      "id": 3,
+      "en": "Bad size",
+      "fr": "Taille refusée par la partition"
+    },
+    {
+      "id": 4,
+      "en": "Lost packets",
+      "fr": "Des paquets ont été perdus"
+    },
+    {
+      "id": 5,
+      "en": "Credit exceeded",
+      "fr": "Crédit dépassé"
+    },
+    {
+      "id": 6,
+      "en": "Foreign image",
+      "fr": "Ce n'est pas un firmware de cette carte"
+    },
+    {
+      "id": 7,
+      "en": "Flash error",
+      "fr": "La flash a refusé l'écriture"
+    },
+    {
+      "id": 8,
+      "en": "Checksum",
+      "fr": "Empreinte fausse — image incomplète"
+    },
+    {
+      "id": 9,
+      "en": "Aborted",
+      "fr": "Annulée"
+    }
   ],
-
   "_mqtt_comment": [
     "TRANSPORT MQTT — le même protocole, un autre chemin.",
     "",
@@ -114,39 +218,106 @@
   ],
   "mqtt": {
     "topics": {
-      "state": { "from": "STATE", "retain": true, "direction": "board_to_client", "periodic": true },
-      "telemetry": { "from": "TELEMETRY", "retain": true, "direction": "board_to_client", "periodic": true },
-      "inputs": { "from": "INPUTS", "retain": true, "direction": "board_to_client", "periodic": true },
-      "faults": { "from": "FAULTS", "retain": true, "direction": "board_to_client", "periodic": true },
-      "status": { "from": null, "retain": true, "direction": "board_to_client",
-                  "values": ["online", "offline"],
-                  "note": "birth et testament, en clair : il ne dit rien de l'installation" },
-      "cmd": { "from": "CMD", "retain": false, "direction": "client_to_board" },
-      "resp": { "from": "RESP", "retain": false, "direction": "board_to_client",
-                "note": "réponse à une commande, chiffrée comme le reste ; non retenue, elle ne vaut que pour la commande qui l'a provoquée" },
-      "req": { "from": null, "retain": false, "direction": "client_to_board",
-               "note": "demande de republication ; une LECTURE, donc permise même sans droit de commande" }
+      "state": {
+        "from": "STATE",
+        "retain": true,
+        "direction": "board_to_client",
+        "periodic": true
+      },
+      "telemetry": {
+        "from": "TELEMETRY",
+        "retain": true,
+        "direction": "board_to_client",
+        "periodic": true
+      },
+      "inputs": {
+        "from": "INPUTS",
+        "retain": true,
+        "direction": "board_to_client",
+        "periodic": true
+      },
+      "faults": {
+        "from": "FAULTS",
+        "retain": true,
+        "direction": "board_to_client",
+        "periodic": true
+      },
+      "status": {
+        "from": null,
+        "retain": true,
+        "direction": "board_to_client",
+        "values": [
+          "online",
+          "offline"
+        ],
+        "note": "birth et testament, en clair : il ne dit rien de l'installation"
+      },
+      "cmd": {
+        "from": "CMD",
+        "retain": false,
+        "direction": "client_to_board"
+      },
+      "resp": {
+        "from": "RESP",
+        "retain": false,
+        "direction": "board_to_client",
+        "note": "réponse à une commande, chiffrée comme le reste ; non retenue, elle ne vaut que pour la commande qui l'a provoquée"
+      },
+      "req": {
+        "from": null,
+        "retain": false,
+        "direction": "client_to_board",
+        "note": "demande de republication ; une LECTURE, donc permise même sans droit de commande"
+      }
     },
     "topic_prefix": "nom de la carte, suffixe MAC compris, qui est AUSSI son compte sur le broker",
     "envelope": {
-      "order": ["t_u32_le", "flags_u8", "gatt_frame"],
+      "order": [
+        "t_u32_le",
+        "flags_u8",
+        "gatt_frame"
+      ],
       "header_size": 5,
-      "flags": { "time_is_sure": 1, "via_phone_bridge": 2 }
+      "flags": {
+        "time_is_sure": 1,
+        "via_phone_bridge": 2
+      }
     },
     "encryption": {
       "algorithm": "AES-256-GCM",
       "key": "clé d'appairage, 32 o, celle d'OP_GET_KEY",
-      "layout": ["version_u8", "nonce_12", "ciphertext", "tag_16"],
+      "layout": [
+        "version_u8",
+        "nonce_12",
+        "ciphertext",
+        "tag_16"
+      ],
       "version": 1,
       "aad": "le nom du topic, sans le préfixe",
       "overhead": 29
     },
-    "publish_when": ["connexion", "changement", "demande sur req"],
+    "publish_when": [
+      "connexion",
+      "changement",
+      "demande sur req"
+    ],
     "rate_limit": {
-      "state": { "burst": 5, "refill_ms": 5000 },
-      "faults": { "burst": 5, "refill_ms": 5000 },
-      "telemetry": { "burst": 1, "refill_ms": 10000 },
-      "inputs": { "burst": 1, "refill_ms": 10000 }
+      "state": {
+        "burst": 5,
+        "refill_ms": 5000
+      },
+      "faults": {
+        "burst": 5,
+        "refill_ms": 5000
+      },
+      "telemetry": {
+        "burst": 1,
+        "refill_ms": 10000
+      },
+      "inputs": {
+        "burst": 1,
+        "refill_ms": 10000
+      }
     },
     "_allowed_opcodes_comment": [
       "⚠️ Ce que le broker a le droit de commander, et rien de plus.",
@@ -154,15 +325,24 @@
       "l'historique ou la remettre en sortie d'usine. Ce qui est acceptable au",
       "bout d'un lien BLE, à portée de main, ne l'est pas depuis Internet.",
       "Les lectures sont ouvertes, les écritures qui changent la configuration",
-      "ne le sont pas."
+      "ne le sont pas.",
+      "⚠️ GET_REMOTE ouvert le 2026-09-05 : c'est une LECTURE, et son absence faisait afficher « inconnu » à l'app pour un état qu'elle avait le droit de connaître. Il ne rend que les deux autorisations et l'état du lien — aucun secret, contrairement à GET_WIFI (le nom du réseau) et GET_MQTT (le compte), qui restent fermés."
     ],
     "allowed_opcodes": [
-      "SET_CHANNEL", "SET_ALL", "SET_TIME",
-      "GET_CH_CONFIG", "GET_OVERCURRENT", "GET_THERMAL", "GET_LABEL",
-      "GET_CH_META", "GET_INPUT", "GET_INPUT_META", "GET_INFO"
+      "SET_CHANNEL",
+      "SET_ALL",
+      "SET_TIME",
+      "GET_CH_CONFIG",
+      "GET_OVERCURRENT",
+      "GET_THERMAL",
+      "GET_LABEL",
+      "GET_CH_META",
+      "GET_INPUT",
+      "GET_INPUT_META",
+      "GET_INFO",
+      "GET_REMOTE"
     ]
   },
-
   "opcodes": {
     "NOP": 0,
     "SET_CHANNEL": 1,
@@ -202,10 +382,8 @@
     "OTA_END": 101,
     "OTA_ABORT": 102,
     "OTA_STATUS": 103,
-
     "GET_BOARD_NAME": 104,
     "SET_BOARD_NAME": 105,
-
     "GET_INPUT_SCALE": 93,
     "SET_INPUT_SCALE": 94,
     "GET_INPUT_ALARM": 106,
@@ -214,20 +392,18 @@
     "HIST_INFO": 109,
     "HIST_READ": 110,
     "HIST_CLEAR": 111,
-
     "GET_MQTT": 112,
     "SET_MQTT": 113,
     "CLEAR_MQTT": 114,
-
     "GET_WIFI": 115,
     "SET_WIFI": 116,
     "CLEAR_WIFI": 117,
     "GET_REMOTE": 118,
     "SET_REMOTE": 119
   },
-
-  "_opcodes_not_dispatched": ["NOP"],
-
+  "_opcodes_not_dispatched": [
+    "NOP"
+  ],
   "status": {
     "OK": 0,
     "UNAUTHORIZED": 1,
@@ -238,7 +414,6 @@
     "BUSY": 6,
     "DRIVEN": 7
   },
-
   "_output_kinds_comment": [
     "L'index EST la valeur du protocole ET celle rangée en NVS : un décalage",
     "ne renomme pas une icône, il désigne une autre charge. `dimmable` reflète",
@@ -247,35 +422,153 @@
     "un curseur verrait sa consigne relevée à 100 % à la trame STATE suivante."
   ],
   "output_kinds": [
-    { "id": 0,  "en": "Generic",         "fr": "Générique",           "dimmable": false },
-    { "id": 1,  "en": "Interior light",  "fr": "Éclairage intérieur", "dimmable": true },
-    { "id": 2,  "en": "Exterior light",  "fr": "Éclairage extérieur", "dimmable": true },
-    { "id": 3,  "en": "Water pump",      "fr": "Pompe à eau",         "dimmable": false },
-    { "id": 4,  "en": "Fan",             "fr": "Ventilation",         "dimmable": true },
-    { "id": 5,  "en": "Fridge",          "fr": "Réfrigérateur",       "dimmable": false },
-    { "id": 6,  "en": "Heater",          "fr": "Chauffage",           "dimmable": false },
-    { "id": 7,  "en": "Water heater",    "fr": "Chauffe-eau",         "dimmable": false },
-    { "id": 8,  "en": "Socket",          "fr": "Prise 12 V",          "dimmable": false },
-    { "id": 9,  "en": "Motor",           "fr": "Motorisation",        "dimmable": false },
-    { "id": 10, "en": "Compressor",      "fr": "Compresseur",         "dimmable": false },
-    { "id": 11, "en": "Antenna / TV",    "fr": "Antenne / TV",        "dimmable": false },
-    { "id": 12, "en": "Siren",           "fr": "Sirène",              "dimmable": false },
-    { "id": 13, "en": "Valve",           "fr": "Électrovanne",        "dimmable": false },
-    { "id": 14, "en": "Light (on/off)",           "fr": "Éclairage tout ou rien",        "dimmable": false }
+    {
+      "id": 0,
+      "en": "Generic",
+      "fr": "Générique",
+      "dimmable": false
+    },
+    {
+      "id": 1,
+      "en": "Interior light",
+      "fr": "Éclairage intérieur",
+      "dimmable": true
+    },
+    {
+      "id": 2,
+      "en": "Exterior light",
+      "fr": "Éclairage extérieur",
+      "dimmable": true
+    },
+    {
+      "id": 3,
+      "en": "Water pump",
+      "fr": "Pompe à eau",
+      "dimmable": false
+    },
+    {
+      "id": 4,
+      "en": "Fan",
+      "fr": "Ventilation",
+      "dimmable": true
+    },
+    {
+      "id": 5,
+      "en": "Fridge",
+      "fr": "Réfrigérateur",
+      "dimmable": false
+    },
+    {
+      "id": 6,
+      "en": "Heater",
+      "fr": "Chauffage",
+      "dimmable": false
+    },
+    {
+      "id": 7,
+      "en": "Water heater",
+      "fr": "Chauffe-eau",
+      "dimmable": false
+    },
+    {
+      "id": 8,
+      "en": "Socket",
+      "fr": "Prise 12 V",
+      "dimmable": false
+    },
+    {
+      "id": 9,
+      "en": "Motor",
+      "fr": "Motorisation",
+      "dimmable": false
+    },
+    {
+      "id": 10,
+      "en": "Compressor",
+      "fr": "Compresseur",
+      "dimmable": false
+    },
+    {
+      "id": 11,
+      "en": "Antenna / TV",
+      "fr": "Antenne / TV",
+      "dimmable": false
+    },
+    {
+      "id": 12,
+      "en": "Siren",
+      "fr": "Sirène",
+      "dimmable": false
+    },
+    {
+      "id": 13,
+      "en": "Valve",
+      "fr": "Électrovanne",
+      "dimmable": false
+    },
+    {
+      "id": 14,
+      "en": "Light (on/off)",
+      "fr": "Éclairage tout ou rien",
+      "dimmable": false
+    }
   ],
-
   "input_kinds": [
-    { "id": 0, "en": "Generic",          "fr": "Générique",             "view": "value" },
-    { "id": 1, "en": "Fresh water tank", "fr": "Réservoir eau propre",  "view": "gauge" },
-    { "id": 2, "en": "Grey water tank",  "fr": "Réservoir eaux grises", "view": "gauge" },
-    { "id": 3, "en": "Black water tank", "fr": "Réservoir eaux noires", "view": "gauge" },
-    { "id": 4, "en": "Gas level",        "fr": "Niveau de gaz",         "view": "gauge" },
-    { "id": 5, "en": "Voltage",          "fr": "Tension",               "view": "value" },
-    { "id": 6, "en": "Contact",          "fr": "Contact",               "view": "contact" },
-    { "id": 7, "en": "Temperature",      "fr": "Température",           "view": "value" },
-    { "id": 8, "en": "Battery",          "fr": "Batterie",              "view": "value" }
+    {
+      "id": 0,
+      "en": "Generic",
+      "fr": "Générique",
+      "view": "value"
+    },
+    {
+      "id": 1,
+      "en": "Fresh water tank",
+      "fr": "Réservoir eau propre",
+      "view": "gauge"
+    },
+    {
+      "id": 2,
+      "en": "Grey water tank",
+      "fr": "Réservoir eaux grises",
+      "view": "gauge"
+    },
+    {
+      "id": 3,
+      "en": "Black water tank",
+      "fr": "Réservoir eaux noires",
+      "view": "gauge"
+    },
+    {
+      "id": 4,
+      "en": "Gas level",
+      "fr": "Niveau de gaz",
+      "view": "gauge"
+    },
+    {
+      "id": 5,
+      "en": "Voltage",
+      "fr": "Tension",
+      "view": "value"
+    },
+    {
+      "id": 6,
+      "en": "Contact",
+      "fr": "Contact",
+      "view": "contact"
+    },
+    {
+      "id": 7,
+      "en": "Temperature",
+      "fr": "Température",
+      "view": "value"
+    },
+    {
+      "id": 8,
+      "en": "Battery",
+      "fr": "Batterie",
+      "view": "value"
+    }
   ],
-
   "_input_modes_comment": [
     "Trois modes seulement. Une seule plage de sonde : la courbe se règle par",
     "les bornes (GET_SENDER / SET_SENDER), pas par le mode.",
@@ -288,11 +581,25 @@
     "rien changer. Les deux disent maintenant 0-2, comme les trois clients."
   ],
   "input_modes": [
-    { "id": 0, "en": "Voltage 0-30 V", "fr": "Tension 0-30 V", "unit": "centivolts" },
-    { "id": 1, "en": "Sender 0-500 Ω", "fr": "Sonde 0-500 Ω",  "unit": "ohms" },
-    { "id": 2, "en": "Dry contact",    "fr": "Contact sec",    "unit": "boolean" }
+    {
+      "id": 0,
+      "en": "Voltage 0-30 V",
+      "fr": "Tension 0-30 V",
+      "unit": "centivolts"
+    },
+    {
+      "id": 1,
+      "en": "Sender 0-500 Ω",
+      "fr": "Sonde 0-500 Ω",
+      "unit": "ohms"
+    },
+    {
+      "id": 2,
+      "en": "Dry contact",
+      "fr": "Contact sec",
+      "unit": "boolean"
+    }
   ],
-
   "_link_actions_comment": [
     "L'index est stocké en NVS et transporté tel quel : les actions ne",
     "s'ajoutent qu'en fin de liste. Les actions 1 et 2 réimposent l'état de la",
@@ -300,25 +607,91 @@
     "seconde, ce qu'un client doit signaler."
   ],
   "link_actions": [
-    { "id": 0, "en": "Disabled",                  "fr": "Aucune action",                  "overrides": false, "needs_threshold": false },
-    { "id": 1, "en": "Contact — follow",          "fr": "Contact — suit l'état",          "overrides": true,  "needs_threshold": false },
-    { "id": 2, "en": "Contact — follow inverted", "fr": "Contact — suit l'état inversé",  "overrides": true,  "needs_threshold": false },
-    { "id": 3, "en": "Contact — toggle",          "fr": "Contact — bascule",              "overrides": false, "needs_threshold": false },
-    { "id": 4, "en": "Voltage — above threshold", "fr": "Tension — au-dessus du seuil",   "overrides": false, "needs_threshold": true },
-    { "id": 5, "en": "Voltage — below threshold", "fr": "Tension — en dessous du seuil",  "overrides": false, "needs_threshold": true }
+    {
+      "id": 0,
+      "en": "Disabled",
+      "fr": "Aucune action",
+      "overrides": false,
+      "needs_threshold": false
+    },
+    {
+      "id": 1,
+      "en": "Contact — follow",
+      "fr": "Contact — suit l'état",
+      "overrides": true,
+      "needs_threshold": false
+    },
+    {
+      "id": 2,
+      "en": "Contact — follow inverted",
+      "fr": "Contact — suit l'état inversé",
+      "overrides": true,
+      "needs_threshold": false
+    },
+    {
+      "id": 3,
+      "en": "Contact — toggle",
+      "fr": "Contact — bascule",
+      "overrides": false,
+      "needs_threshold": false
+    },
+    {
+      "id": 4,
+      "en": "Voltage — above threshold",
+      "fr": "Tension — au-dessus du seuil",
+      "overrides": false,
+      "needs_threshold": true
+    },
+    {
+      "id": 5,
+      "en": "Voltage — below threshold",
+      "fr": "Tension — en dessous du seuil",
+      "overrides": false,
+      "needs_threshold": true
+    }
   ],
-
   "sender_profiles": [
-    { "id": 0, "en": "Custom",                    "fr": "personnalisé" },
-    { "id": 1, "en": "VDO 10-180 Ω (180 = full)", "fr": "VDO 10-180 Ω" },
-    { "id": 2, "en": "Euro 0-190 Ω (190 = full)", "fr": "Euro 0-190 Ω" },
-    { "id": 3, "en": "US 240-33 Ω (33 = full)",   "fr": "US 240-33 Ω" },
-    { "id": 4, "en": "GM 0-90 Ω (90 = full)",     "fr": "GM 0-90 Ω" },
-    { "id": 5, "en": "0-5 V (5 = full)",          "fr": "0-5 V" },
-    { "id": 6, "en": "0.5-4.5 V (4.5 = full)",    "fr": "0,5-4,5 V" },
-    { "id": 7, "en": "0-10 V (10 = full)",        "fr": "0-10 V" }
+    {
+      "id": 0,
+      "en": "Custom",
+      "fr": "personnalisé"
+    },
+    {
+      "id": 1,
+      "en": "VDO 10-180 Ω (180 = full)",
+      "fr": "VDO 10-180 Ω"
+    },
+    {
+      "id": 2,
+      "en": "Euro 0-190 Ω (190 = full)",
+      "fr": "Euro 0-190 Ω"
+    },
+    {
+      "id": 3,
+      "en": "US 240-33 Ω (33 = full)",
+      "fr": "US 240-33 Ω"
+    },
+    {
+      "id": 4,
+      "en": "GM 0-90 Ω (90 = full)",
+      "fr": "GM 0-90 Ω"
+    },
+    {
+      "id": 5,
+      "en": "0-5 V (5 = full)",
+      "fr": "0-5 V"
+    },
+    {
+      "id": 6,
+      "en": "0.5-4.5 V (4.5 = full)",
+      "fr": "0,5-4,5 V"
+    },
+    {
+      "id": 7,
+      "en": "0-10 V (10 = full)",
+      "fr": "0-10 V"
+    }
   ],
-
   "_sender_profiles_comment": [
     "Les profils 1 à 4 écrivent les bornes RÉSISTIVES (GET/SET_SENDER), les",
     "profils 5 à 7 les bornes en TENSION (GET/SET_INPUT_SCALE). Une seule",
@@ -328,7 +701,6 @@
     "2,495 V et n'existe qu'en mode excité) : le profil 0,5-4,5 V suppose une",
     "alimentation extérieure."
   ],
-
   "_alarms_comment": [
     "Seuils d'alerte par entrée. Le sens et les deux seuils se règlent",
     "(SET_INPUT_ALARM) ; la grandeur et le niveau courant se lisent",
@@ -341,22 +713,65 @@
     "Piloter une sortie depuis une entrée reste le rôle de SET_LINK."
   ],
   "alarm_directions": [
-    { "id": 0, "en": "Disabled",        "fr": "Désactivée" },
-    { "id": 1, "en": "Below threshold", "fr": "En dessous du seuil" },
-    { "id": 2, "en": "Above threshold", "fr": "Au-dessus du seuil" }
+    {
+      "id": 0,
+      "en": "Disabled",
+      "fr": "Désactivée"
+    },
+    {
+      "id": 1,
+      "en": "Below threshold",
+      "fr": "En dessous du seuil"
+    },
+    {
+      "id": 2,
+      "en": "Above threshold",
+      "fr": "Au-dessus du seuil"
+    }
   ],
   "alarm_metrics": [
-    { "id": 0, "en": "None",    "fr": "Aucune",     "unit": null },
-    { "id": 1, "en": "Percent", "fr": "Pourcentage", "unit": "%" },
-    { "id": 2, "en": "Volt",    "fr": "Tension",     "unit": "V" },
-    { "id": 3, "en": "Ohm",     "fr": "Résistance",  "unit": "Ω" }
+    {
+      "id": 0,
+      "en": "None",
+      "fr": "Aucune",
+      "unit": null
+    },
+    {
+      "id": 1,
+      "en": "Percent",
+      "fr": "Pourcentage",
+      "unit": "%"
+    },
+    {
+      "id": 2,
+      "en": "Volt",
+      "fr": "Tension",
+      "unit": "V"
+    },
+    {
+      "id": 3,
+      "en": "Ohm",
+      "fr": "Résistance",
+      "unit": "Ω"
+    }
   ],
   "alarm_levels": [
-    { "id": 0, "en": "OK",       "fr": "Normal" },
-    { "id": 1, "en": "Warning",  "fr": "Avertissement" },
-    { "id": 2, "en": "Critical", "fr": "Critique" }
+    {
+      "id": 0,
+      "en": "OK",
+      "fr": "Normal"
+    },
+    {
+      "id": 1,
+      "en": "Warning",
+      "fr": "Avertissement"
+    },
+    {
+      "id": 2,
+      "en": "Critical",
+      "fr": "Critique"
+    }
   ],
-
   "constants": {
     "channels": 8,
     "inputs": 4,
@@ -372,7 +787,19 @@
     "input_scale_max_cv": 3000,
     "hist_levels": 5,
     "hist_record_bytes": 156,
-    "hist_level_seconds": [900, 3600, 86400, 604800, 2419200],
-    "hist_level_depth": [8, 48, 14, 9, 14]
+    "hist_level_seconds": [
+      900,
+      3600,
+      86400,
+      604800,
+      2419200
+    ],
+    "hist_level_depth": [
+      8,
+      48,
+      14,
+      9,
+      14
+    ]
   }
 }
